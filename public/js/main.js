@@ -33,7 +33,7 @@ const data = [
 const gameScreen = document.querySelector('.gameScreen');
 const resultScreen = document.querySelector('.resultScreen');
 const question = document.querySelector('.question');
-const answers = document.querySelector('.answers');
+const answersContainer = document.querySelector('.answers');
 const submit = document.querySelector('.submitButton');
 const replay = document.querySelector('.replayButton');
 
@@ -42,13 +42,14 @@ let qIndex = 0;
 let wrongCount = 0;
 let correctCount = 0;
 let total = 0;
-let selectedAnswer;
+let answerStorage;
 
 // create function that shows question and answers
 
 const showQuestion = (qNum) => {
+	answerStorage = null; //null catch, resets for each question
 	question.textContent = data[qNum].question;
-	answers.innerHTML = data[qNum].answers
+	answersContainer.innerHTML = data[qNum].answers
 		.map(
 			(item, index) =>
 				`
@@ -59,5 +60,36 @@ const showQuestion = (qNum) => {
 		`
 		)
 		.join('');
+
+	selectAnswer();
 };
+// create click event and storing of answer value when choosing answer
+const selectAnswer = () => {
+	answersContainer.querySelectorAll('input').forEach((el) => {
+		el.addEventListener('click', (e) => {
+			answerStorage = e.target.value;
+		});
+	});
+};
+
+// create click event for submit button
+// add condition for null answer
+const submitAnswer = () => {
+	submitButton.addEventListener('click', () => {
+		if (answerStorage === null) alert('Select an answer!');
+		answerStorage === 'true' ? correctCount++ : wrongCount++;
+		qIndex++;
+		showQuestion(qIndex);
+	});
+};
+// const submitAnswer = () => {
+// 	submitButton.addEventListener('click', () => {
+// 		if (selectAnswer !== null) {
+// 			selectAnswer === 'true' ? correctCount++ : wrongCount++;
+// 			qIndex++;
+// 			showQuestion(qIndex);
+// 		} else alert('Select an answer!');
+// 	});
+// };
 showQuestion(qIndex);
+submitAnswer();
