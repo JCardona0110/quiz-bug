@@ -30,7 +30,7 @@ const data = [
 	},
 ];
 // define global variables that will be used in html
-const gameScreen = document.querySelector('.gameScreen');
+const gameScreen = document.querySelector('.gameContainer');
 const resultScreen = document.querySelector('.resultScreen');
 const question = document.querySelector('.question');
 const answersContainer = document.querySelector('.answers');
@@ -44,9 +44,14 @@ let correctCount = 0;
 let total = 0;
 let answerStorage;
 
+const showResults = () => {
+	gameScreen.style.display = 'none';
+	resultScreen.style.display = 'block';
+};
 // create function that shows question and answers
 
 const showQuestion = (qNum) => {
+	if (qIndex === data.length) return showResults; // run results page after questions are complete
 	answerStorage = null; //null catch, resets for each question
 	question.textContent = data[qNum].question;
 	answersContainer.innerHTML = data[qNum].answers
@@ -74,22 +79,25 @@ const selectAnswer = () => {
 
 // create click event for submit button
 // add condition for null answer
-const submitAnswer = () => {
-	submitButton.addEventListener('click', () => {
-		if (answerStorage === null) alert('Select an answer!');
-		answerStorage === 'true' ? correctCount++ : wrongCount++;
-		qIndex++;
-		showQuestion(qIndex);
-	});
-};
 // const submitAnswer = () => {
 // 	submitButton.addEventListener('click', () => {
-// 		if (selectAnswer !== null) {
-// 			selectAnswer === 'true' ? correctCount++ : wrongCount++;
-// 			qIndex++;
-// 			showQuestion(qIndex);
-// 		} else alert('Select an answer!');
+// 		if (answerStorage === null) alert('Select an answer!');
+// 		answerStorage === 'true' ? correctCount++ : wrongCount++;
+// 		qIndex++;
+// 		showQuestion(qIndex);
 // 	});
 // };
+const submitAnswer = () => {
+	submitButton.addEventListener('click', () => {
+		if (answerStorage !== null) {
+			answerStorage === 'true' ? correctCount++ : wrongCount++;
+			qIndex++;
+			showQuestion(qIndex);
+		} else alert('Select an answer!');
+	});
+};
+
+// create function to switch to results page after last answer submitted
+
 showQuestion(qIndex);
 submitAnswer();
