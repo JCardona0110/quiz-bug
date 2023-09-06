@@ -41,17 +41,42 @@ const replay = document.querySelector('.replayButton');
 let qIndex = 0;
 let wrongCount = 0;
 let correctCount = 0;
-let total = 0;
+let total = 3;
 let answerStorage;
 
+const replayGame = () => {
+	qIndex = 0;
+	wrongCount = 0;
+	correctCount = 0;
+	total = 3;
+	showQuestion(qIndex);
+};
+replay.addEventListener('click', () => {
+	gameScreen.style.display = 'block';
+	resultScreen.style.display = 'none';
+	replayGame();
+});
+
+// create function to switch to results page after last answer submitted
 const showResults = () => {
 	gameScreen.style.display = 'none';
 	resultScreen.style.display = 'block';
+	// increment wrong and correct answer counts and calculate score
+	resultScreen.querySelector(
+		'.correct'
+	).textContent = `Correct Answers: ${correctCount}`;
+
+	resultScreen.querySelector(
+		'.wrong'
+	).textContent = `Wrong Answers: ${wrongCount}`;
+
+	let totalScore = ((correctCount / total) * 100).toFixed();
+	resultScreen.querySelector('.score').textContent = `Score: ${totalScore}%`;
 };
 // create function that shows question and answers
 
 const showQuestion = (qNum) => {
-	if (qIndex === data.length) return showResults; // run results page after questions are complete
+	if (qIndex === data.length) return showResults(); // run results page after questions are complete
 	answerStorage = null; //null catch, resets for each question
 	question.textContent = data[qNum].question;
 	answersContainer.innerHTML = data[qNum].answers
@@ -97,7 +122,7 @@ const submitAnswer = () => {
 	});
 };
 
-// create function to switch to results page after last answer submitted
+// play again button listener
 
 showQuestion(qIndex);
 submitAnswer();

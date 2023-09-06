@@ -35,17 +35,26 @@ html {
 	padding-top: 10%;
 	width: 0 auto;
 }
-
-/******************************************
-  /* LAYOUT
-  /*******************************************/
 .gameContainer {
 	background-color: white;
 	width: 50%;
 	height: 400px;
 	position: relative;
+	display: none;
+}
+.resultScreen {
+	background-color: white;
+	width: 50%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	/* display: none; */
 }
+/******************************************
+  /* LAYOUT
+  /*******************************************/
 
 #submitButton {
 	background-color: rgb(89, 44, 134);
@@ -59,6 +68,17 @@ html {
 	font-size: 2rem;
 }
 
+.replayButton {
+	background-color: rgb(89, 44, 134);
+	color: white;
+	border: none;
+	height: 30px;
+	cursor: pointer;
+	bottom: 0;
+	font-size: 2rem;
+	border-radius: 15px;
+}
+
 .question {
 	display: flex;
 	justify-content: center;
@@ -66,10 +86,9 @@ html {
 	font-size: 3rem;
 }
 
-.answer {
-	cursor: pointer;
-	padding-left: 50px;
-	margin-bottom: 50px;
+.answerField {
+	padding-left: 20px;
+	margin-bottom: 20px;
 }
 
 .answers {
@@ -80,16 +99,16 @@ html {
 	flex-direction: column;
 	justify-content: space-around;
 }
+input {
+	cursor: pointer;
+}
 
-.resultScreen {
-	background-color: white;
-	width: 50%;
-	height: 400px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	display: none;
+label {
+	cursor: pointer;
+}
+
+section h1 {
+	padding: 30px 20px 30px 20px;
 }
 
 .endContent {
@@ -98,19 +117,11 @@ html {
 
 .correct {
 	color: green;
+	font-size: 2rem;
 }
 
 .wrong {
 	color: red;
-}
-
-.replayButton {
-	background-color: rgb(89, 44, 134);
-	color: white;
-	border: none;
-	height: 30px;
-	cursor: pointer;
-	bottom: 0;
 	font-size: 2rem;
 }
 
