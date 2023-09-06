@@ -3,6 +3,7 @@ html {
 	box-sizing: border-box;
 	font-size: 62.5%;
 }
+
 *,
 *::before,
 *::after {
@@ -26,7 +27,6 @@ html {
 /******************************************
   /* BASE STYLES
   /*******************************************/
-
 .gameScreen {
 	background-color: rgb(35, 34, 60);
 	display: flex;
@@ -35,18 +35,28 @@ html {
 	padding-top: 10%;
 	width: 0 auto;
 }
-
-/******************************************
-  /* LAYOUT
-  /*******************************************/
-
 .gameContainer {
 	background-color: white;
 	width: 50%;
 	height: 400px;
 	position: relative;
-	// display: none;
+	display: none;
 }
+.resultScreen {
+	background-color: white;
+	width: 50%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	/* display: none; */
+}
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+
 #submitButton {
 	background-color: rgb(89, 44, 134);
 	color: white;
@@ -58,44 +68,7 @@ html {
 	bottom: 0;
 	font-size: 2rem;
 }
-.question {
-	display: flex;
-	justify-content: center;
-	padding: 20px 20px 30px 20px;
-	font-size: 3rem;
-}
-.answer {
-	cursor: pointer;
-	padding-left: 50px;
-	margin-bottom: 50px;
-}
-.answers {
-	font-size: 2rem;
-	display: flex;
-	padding-left: 50px;
-	margin-bottom: 20px;
-	flex-direction: column;
-	justify-content: space-around;
-}
-.resultScreen {
-	background-color: white;
-	width: 50%;
-	height: 400px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	display: none;
-}
-.endContent {
-	font-size: 1.5rem;
-}
-.correct {
-	color: green;
-}
-.wrong {
-	color: red;
-}
+
 .replayButton {
 	background-color: rgb(89, 44, 134);
 	color: white;
@@ -104,7 +77,55 @@ html {
 	cursor: pointer;
 	bottom: 0;
 	font-size: 2rem;
+	border-radius: 15px;
 }
+
+.question {
+	display: flex;
+	justify-content: center;
+	padding: 20px 20px 30px 20px;
+	font-size: 3rem;
+}
+
+.answerField {
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+.answers {
+	font-size: 2rem;
+	display: flex;
+	padding-left: 50px;
+	margin-bottom: 20px;
+	flex-direction: column;
+	justify-content: space-around;
+}
+input {
+	cursor: pointer;
+}
+
+label {
+	cursor: pointer;
+}
+
+section h1 {
+	padding: 30px 20px 30px 20px;
+}
+
+.endContent {
+	font-size: 1.5rem;
+}
+
+.correct {
+	color: green;
+	font-size: 2rem;
+}
+
+.wrong {
+	color: red;
+	font-size: 2rem;
+}
+
 /******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
