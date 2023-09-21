@@ -1,6 +1,7 @@
 ## Quiz Bug: <a href="https://quiz-bug.netlify.app" target="_blank">Check it out!</a>
-<a href="https://i.ibb.co/FJzmmNj/quizbug-gif.gif" target="_blank"> A (not so)quick example gif</a>
 
+<img src="https://github.com/JCardona0110/JCardona0110/blob/main/quizbug%20gif.gif" width="70%" alt="Quiz Bug app"/>
+</a>
 Quiz Bug is a simple quiz app with a play again function and final results screen.
 
 ## Tech used: ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)	![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
